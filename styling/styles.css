@@ -1,0 +1,825 @@
+:root {
+  --red: #8e0101;
+  --green: #6bdba5;
+  --lightergreen: #9ef1c9;
+  --white: #ffffff;
+  --black: #141216;
+  --blue: #dee6f7;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+body {
+  box-sizing: border-box;
+  overflow-x: hidden;
+  padding: 0px;
+  margin: auto;
+  max-width: 1400px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.homeheader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 5rem;
+  background-color: #fff;
+  margin-top: 0;
+}
+
+.headerlogo {
+  font-size: 1.5rem;
+  font-family: "Staatliches", cursive;
+  color: var(--black);
+}
+
+.navbarhome ul {
+  font-family: "Roboto Slab", serif;
+  display: flex;
+  flex-direction: row;
+  padding-inline-start: 0px;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.navbarhome ul li {
+  text-decoration: none;
+  display: block;
+  padding: 15px 30px 15px 30px;
+  transition: 0.3s ease;
+}
+
+.navbarhome ul li:hover {
+  background-color: black;
+  color: #fff;
+}
+
+.hamburgericon {
+  display: none !;
+}
+
+.xicon {
+  display: none;
+}
+
+.display {
+  display: none;
+}
+
+.post-category-id li {
+  margin-bottom: 5px;
+}
+
+.post-category-id li:hover {
+  color: var(--green);
+}
+
+.active {
+  background-color: black;
+  color: #fff;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(/images/ricardo-gomez-angel-TAhsXhWipwg-unsplash.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 600px;
+  margin-top: 0;
+}
+
+.topblogbtn {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--green);
+  color: var(--black);
+  width: 200px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  transition: 0.2s;
+}
+
+.toblogbtn:hover {
+  background-color: var(--lightergreen);
+}
+
+.toblogbtn i {
+  margin-left: 10px;
+  left: 5000px;
+}
+
+.tophome {
+  display: flex;
+  flex-direction: column;
+  min-height: 600px;
+  margin-top: 0;
+}
+
+h1 {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+
+.mainheading {
+  font-family: "Staatliches", cursive;
+  color: #fff;
+}
+
+.mainsection {
+  height: auto;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.cooltext {
+  width: 80%;
+  font-family: "Neucha", cursive;
+}
+
+.toppostcontainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--blue);
+}
+
+.featuredpostimage {
+  background-image: url(/images/kelly-sikkema-Z4GKcFAGck4-unsplash.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 300px;
+  width: 300px;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.topblogposts {
+  font-family: "Poppins", sans-serif;
+  color: var(--black);
+}
+
+.featuredpost {
+  box-sizing: border-box;
+  width: 300px;
+  height: 650px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Roboto Slab", serif;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  background-color: var(--white);
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.featuredpostheading {
+  width: 90%;
+}
+
+.featuredpost p {
+  width: 90%;
+}
+.postonelink {
+  border-radius: 5px;
+  height: 25px;
+  width: 150px;
+  text-align: center;
+  background-color: var(--green);
+  color: var(--black);
+  margin-bottom: 10px;
+  transition: 0.2s;
+}
+
+.postonelink:hover {
+  background-color: var(--green);
+  color: var(--white);
+}
+
+.sectiontwo {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 800px;
+  background-image: url(/images/stefan-widua-8GgEgObcIuw-unsplash.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.sectiontwo::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: var(--black);
+  opacity: 0.7;
+}
+
+.sectiontwocontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+  color: #fff;
+  opacity: 0.9;
+}
+
+.sectiontwoheading {
+  font-family: "Poppins", sans-serif;
+}
+
+.sectiontwotext {
+  font-family: "Neucha", cursive;
+  width: 90%;
+}
+
+.iconcontainer {
+  font-family: "Roboto Slab", serif;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 80%;
+}
+
+.trucks {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.truckstext {
+  width: 80%;
+  font-size: 0.8rem;
+}
+
+.icon a {
+  color: var(--white);
+  font-size: 3rem;
+}
+
+.bookasection {
+  height: 600px;
+  background-color: var(--green);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  color: var(--white);
+}
+
+.bookaheading {
+  font-family: "Roboto Slab", serif;
+}
+
+.bookatext {
+  width: 80%;
+  font-family: "Neucha", cursive;
+}
+
+.bookalink {
+  font-family: "Roboto Slab", serif;
+  display: block;
+  background-color: var(--black);
+  color: var(--white);
+  width: 200px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  transition: 0.2s;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 5px 0px;
+}
+
+.bookalink:hover {
+  color: var(--black);
+  background-color: var(--white);
+}
+
+.homefooter {
+  min-height: 100%;
+  color: var(--white);
+  background-color: var(--black);
+  display: flex;
+}
+
+.footerdiv {
+  display: flex;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.footerdivone {
+  flex: 1;
+  margin-left: 50px;
+}
+
+.footerdivtwo {
+  flex: 1;
+  margin-left: 150px;
+  margin-right: 100px;
+  justify-content: center;
+}
+
+.footerdivthree {
+  flex: 1;
+  margin-right: 50px;
+  margin-left: 50px;
+  margin-bottom: 50px;
+}
+
+.footerheading {
+  font-family: "Roboto Slab", serif;
+}
+
+.footersubheading {
+  font-family: "Neucha", cursive;
+}
+
+.footertext {
+  font-family: "Neucha", cursive;
+}
+
+.footerdate {
+  font-family: "Neucha", cursive;
+  font-size: 0.8rem;
+}
+
+.footerpostpreview {
+  font-family: "Neucha", cursive;
+  width: 80%;
+}
+
+.footeradress {
+  font-family: "Neucha", cursive;
+}
+
+.footericons {
+  font-size: 2rem;
+  color: var(--white);
+}
+
+img {
+  display: flex;
+  height: auto;
+  max-width: 100%;
+  align-items: center;
+}
+
+.specificmain {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 120px;
+  margin-bottom: 50px;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+}
+
+.blogspecificcontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 100px;
+}
+
+.blogspecificheader {
+  font-family: "Roboto Slab", serif;
+}
+
+figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-block-start: 10px;
+  margin-block-end: 10px;
+  margin-inline-start: 10px;
+  margin-inline-end: 10px;
+}
+
+.blogp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+p {
+  display: flex;
+  word-wrap: break-word;
+}
+
+.blogp p {
+  margin-block-start: 10px;
+  margin-block-end: 10px;
+  flex-wrap: wrap;
+  -webkit-text-size-adjust: 100%;
+}
+
+.rightsection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-right: 20px;
+  margin-left: 150px;
+  margin-top: 150px;
+  font-family: "Roboto Slab", serif;
+}
+
+.rightheading {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  font-family: "Roboto Slab", serif;
+}
+
+.rightttext {
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.blogpostspecificimage {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-width: 600px;
+  height: auto;
+}
+
+.blogpostinfo {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+  font-family: "Roboto Slab", serif;
+}
+
+.blogpostinfo p {
+  margin-right: 15px;
+}
+
+.latestposts {
+  font-family: "Roboto Slab", serif;
+  margin-block-start: 1rem;
+}
+
+.footercontact {
+  font-family: "Roboto Slab", serif;
+}
+
+.latestpost a:hover {
+  color: var(--green);
+}
+
+.searchcont {
+  display: flex;
+  align-items: flex-start;
+  transition: 1s;
+}
+
+#searchfield {
+  height: 30px;
+  max-width: 250px;
+  margin-top: 0;
+  position: relative;
+  transform: translateX(-264px);
+  z-index: 0;
+  display: none;
+}
+
+.srcicon {
+  height: 35px;
+  width: 30px;
+  color: var(--white);
+  background-color: var(--black);
+  margin-left: 5px;
+  z-index: 1;
+}
+
+#shadow {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.blogposttext {
+  margin-top: 40px;
+  font-family: "Roboto Slab", serif;
+}
+
+.blogposttext .blogp p {
+  max-width: 600px;
+}
+
+textarea {
+  font-family: "Roboto Slab", serif;
+  resize: none;
+}
+
+.blogpostreplies {
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 20px;
+  margin-left: 100px;
+}
+
+.blogrepliestext {
+  font-style: italic;
+  font-size: 0.6rem;
+}
+
+.commentheading {
+  font-family: "Poppins", sans-serif;
+}
+
+.commentusername {
+  border-bottom: 1px solid black;
+  text-transform: uppercase;
+}
+
+#blog-post-comment {
+  height: 200px;
+  max-width: 400px;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 5px;
+  resize: vertical;
+  font-family: "Roboto Slab", serif;
+}
+
+.inputname {
+  font-family: "Poppins", sans-serif;
+}
+
+#inputname {
+  width: 250px;
+}
+
+.emaillabel {
+  font-family: "Poppins", sans-serif;
+}
+
+.commentbutton {
+  font-family: "Roboto Slab", serif;
+  margin-top: 20px;
+  width: 208px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  transition: 0.4s;
+  text-transform: uppercase;
+  background-color: var(--lightergreen);
+}
+
+.commentbutton:hover {
+  cursor: pointer;
+  background-color: #6bdba5;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.blogcommentcontainer {
+  margin-top: 50px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  font-family: "Poppins", sans-serif;
+}
+
+.comment {
+  font-family: "Roboto Slab", cursive;
+  font-style: italic;
+  font-size: 0.8rem;
+}
+
+.commentinfo {
+  font-family: "Roboto Slab", serif;
+  font-weight: bold;
+  font-size: 0.7rem;
+}
+
+.sidebyside {
+  display: flex;
+  align-items: flex-start;
+}
+
+.aboutheader {
+  height: 300px;
+  background-image: url("/images/nataliya-smirnova-4SIY5l6EisY-unsplash.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.aboutheading {
+  color: var(--white);
+}
+
+.aboutheading2 {
+  color: #141216;
+  margin-block-start: 0;
+  font-size: 1.5rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.aboutmain {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.abouttxt {
+  width: 80%;
+  font-family: "Roboto Slab", serif;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.abouttextdiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.links a {
+  margin: 20px;
+  background-color: #6bdba5;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  font-family: "Staatliches", cursive;
+  border-radius: 10px;
+}
+
+.stick {
+  box-sizing: border-box;
+  height: 2000px;
+  width: 10px;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 1s;
+}
+
+.links a:hover {
+  color: var(--white);
+}
+
+.contactheader {
+  height: 300px;
+  background-image: url(/images/pawel-czerwinski--0xCCPIbl3M-unsplash.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: var(--white);
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.contactheading {
+  margin-left: 50px;
+  text-decoration: underline;
+}
+
+.contactmain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contactsectionone {
+  height: 300px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.threedivs {
+  margin-block-start: 0;
+  font-family: "Neucha", cursive;
+  font-size: 1.4rem;
+}
+
+.threedivs h5 {
+  margin-block-start: 0;
+}
+
+.threedivs p {
+  font-family: "Roboto Slab", serif;
+  font-size: 0.9rem;
+}
+
+label {
+  font-family: "Roboto Slab", serif;
+}
+
+form {
+  max-width: 800px;
+}
+
+.formheading {
+  font-family: "Poppins", sans-serif;
+  text-decoration: underline;
+}
+
+.formsection {
+  margin-bottom: 50px;
+}
+
+.message {
+  height: 200px;
+  max-width: 400px;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 5px;
+  resize: none;
+  font-family: "Roboto Slab", serif;
+}
+
+input {
+  max-width: 250px;
+  height: 22px;
+  margin-top: 3px;
+}
+
+.emailinput .formheading {
+  font-size: 1.3rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.inputcontainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.submitbtn {
+  width: 200px;
+  height: 27px;
+  margin-top: 20px;
+  font-family: "Roboto Slab", serif;
+  text-transform: uppercase;
+  background-color: var(--green);
+  border: none;
+  border-radius: 10px;
+  color: var(--white);
+  transition: 0.4s;
+}
+
+.submitbtn:hover {
+  cursor: pointer;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}

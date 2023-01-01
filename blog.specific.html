@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/00a541403c.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styling/styles.css" />
+    <link rel="stylesheet" href="/styling/mediaquerys.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Neucha&family=Poppins:wght@600&family=Roboto+Slab&family=Staatliches&display=swap"
+      rel="stylesheet"
+    />
+    <title>The Travel Blog</title>
+  </head>
+  <body>
+    <header id="shadow">
+      <div class="homeheader">
+        <div class="headerlogo"></div>
+        <nav class="navbarhome" class="">
+          <ul>
+            <a href="index.html"><li>Home</li></a>
+            <a href="blog.html"><li>Blog</li></a>
+            <a href="about.html"><li>About</li></a>
+            <a href="contact.html"><li>Contact</li></a>
+          </ul>
+        </nav>
+        <div class="hamburgericon" style="display: none">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+        <div class="xicon"><i class="fa-solid fa-xmark"></i></div>
+      </div>
+      </div>
+    </header>
+    <div class="sidebyside">
+      <main class="specificmain">
+        <div class="blogspecificcontainer">
+          <h1 class="blogspecificheader"></h1>
+          <div class="blogpostinfo">
+            <p class="blogpostusername"><i class="fa-solid fa-user"></i></p>
+            <i class="fa-regular fa-clock"></i>
+            <p class="postdate"></p>
+            <i class="fa-solid fa-book"></i>
+            <p class="specificcategory"></p>
+          </div>
+          <div class="blogposttext"></div>
+        </div>
+        <div class="blogpostreplies">
+          <h4 class="commentusername"></h4>
+          <div class="commentinfo"></div>
+          <p class="comment" id="comment"></p>
+
+          <div class="blogrepliestext">
+            Din epost-adresse vil bli lagret og misbrukt
+          </div>
+
+          <label for="commenttext" class="commentheading"
+            >Leave a comment</label
+          >
+          <textarea
+            type="text"
+            id="blog-post-comment"
+            name="blog.comment"
+          ></textarea>
+          <label for="name" class="inputname">Name</label>
+          <input type="text" id="inputname" name="nameinput" />
+          <label for="email" class="emaillabel">Email</label>
+          <input type="email" class="emailinput" name="emailinput" />
+          <button class="commentbutton">Publish comment</button>
+        </div>
+      </main>
+      <section class="rightsection">
+        <h2 class="rightheading">The Winter Blog</h2>
+        <h3 class="rightsubheading">Lorem ipsum dolor sit.</h3>
+        <p class="rightttext">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia delectus
+          dolorum doloribus dolor. Amet vitae nostrum corporis quas beatae
+          labore!
+        </p>
+        <div class="searchcont">
+          <input type="text" id="searchfield" placeholder="Søk" /><button
+            class="srcicon"
+          >
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+        <div class="latestpost"><h3>Latest Posts</h3></div>
+        <div class="calendar"></div>
+        <h3 class="categories">Post Categories</h3>
+        <ul class="post-category-id"></ul>
+      </section>
+    </div>
+    <footer class="homefooter" id="blog.footer">
+      <div class="footerdivone">
+        <h3 class="footerheading">The Winter Blog</h3>
+        <h4 class="footersubheading">Blogposts about the Winter</h4>
+        <p class="footertext">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, alias!
+        </p>
+      </div>
+      <div class="footerdivtwo"></div>
+      <div class="footerdivthree">
+        <h2 class="footercontact">Get in touch</h2>
+        <p class="footeradress">Museumsvegen 1, 2406 Elverum NORGE</p>
+        <div class="footericons">
+          <i class="fa-brands fa-github"></i>
+          <i class="fa-brands fa-linkedin"></i>
+        </div>
+      </div>
+    </footer>
+    <script src="js/index.js"></script>
+    <script src="js/blog.js"></script>
+    <script src="/js/blogspec.js"></script>
+  </body>
+</html>
