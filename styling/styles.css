@@ -111,8 +111,9 @@ a {
   transition: 0.2s;
 }
 
-.toblogbtn:hover {
+.topblogbtn:hover {
   background-color: var(--lightergreen);
+  border: 1px solid black;
 }
 
 .toblogbtn i {
@@ -152,21 +153,20 @@ h1 {
 }
 
 .toppostcontainer {
+  margin: 0 auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  justify-content: space-between;
   background-color: var(--blue);
+  overflow: hidden;
 }
 
 .featuredpostimage {
-  background-image: url(/images/kelly-sikkema-Z4GKcFAGck4-unsplash.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 300px;
-  width: 300px;
+  max-width: 300px;
   border-radius: 5px 5px 0px 0px;
 }
 
@@ -175,13 +175,34 @@ h1 {
   color: var(--black);
 }
 
-.featuredpost {
-  box-sizing: border-box;
-  width: 300px;
-  height: 650px;
+.fpcontainer {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  width: 300px;
   align-items: center;
+  height: 100%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  overflow: hidden;
+  border: 1px solid black;
+  min-height: 400px;
+  background-color: var(--white);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  flex: 1;
+  text-align: center;
+}
+
+.featuredpost {
+  position: relative;
+  box-sizing: border-box;
+  max-height: 650px;
+  display: flex;
+  gap: 600px;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: flex-start;
   font-family: "Roboto Slab", serif;
   margin-left: 25px;
   margin-right: 25px;
@@ -189,31 +210,71 @@ h1 {
   margin-top: 50px;
   background-color: var(--white);
   border-radius: 5px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  background-color: var(--blue);
 }
 
 .featuredpostheading {
   width: 90%;
 }
 
+.buttons {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+button {
+  height: 30px;
+  width: 30px;
+  color: var(--black);
+  border: none;
+  transition: 0.4s;
+}
+
+button:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
 .featuredpost p {
   width: 90%;
+  font-size: 0.6rem;
 }
 .postonelink {
-  border-radius: 5px;
+  border-radius: 10px;
   height: 25px;
-  width: 150px;
+  width: 200px;
   text-align: center;
   background-color: var(--green);
   color: var(--black);
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   transition: 0.2s;
 }
 
 .postonelink:hover {
   background-color: var(--green);
   color: var(--white);
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.featuredimage {
+  width: 300px;
+  height: 300px;
+}
+
+.sidebyside {
+  display: flex;
+  flex-direction: row;
+}
+
+.featuredblogimage {
+  max-width: 300px;
+  max-height: 300px;
+  border: 1px solid black;
 }
 
 .sectiontwo {
@@ -380,6 +441,9 @@ h1 {
 
 .footericons {
   font-size: 2rem;
+}
+
+.footericons a {
   color: var(--white);
 }
 
@@ -425,6 +489,11 @@ figure {
   margin-block-end: 10px;
   margin-inline-start: 10px;
   margin-inline-end: 10px;
+  transition: 1s;
+}
+
+figure:hover {
+  cursor: pointer;
 }
 
 .blogp {
@@ -537,7 +606,7 @@ p {
 
 .blogposttext {
   margin-top: 40px;
-  font-family: "Roboto Slab", serif;
+  font-family: "Neucha", cursive;
 }
 
 .blogposttext .blogp p {
@@ -822,4 +891,28 @@ input {
   cursor: pointer;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.error {
+  display: none;
+  font-family: "Roboto Slab", serif;
+  font-size: 0.8rem;
+  color: #8e0101;
+}
+
+.success {
+  display: none;
+}
+
+.succeeded {
+  display: none;
+}
+
+.loadmore {
+  width: 100px;
+  font-weight: bold;
+  font-size: 0.6rem;
+  font-style: italic;
+  border: 1px solid black;
+  border-radius: 10px;
 }

@@ -1,9 +1,13 @@
 const url = "https://skole.vorsbrothers.no/wp-json/";
-const blogUrlforLandingPage = url + "wp/v2/posts?per_page=1";
-const blogUrl = url + "wp/v2/posts?per_page=5";
-const featuredPost = document.querySelector(".toppostcontainer");
+//Change here for number of featured posts on landing page
+const blogUrlforLandingPage = url + "wp/v2/posts?per_page=3";
+//
+const mediaUrl = url + "wp/v2/media?per_page=10";
+const blogUrl = url + "wp/v2/posts/";
+const featuredPost = document.querySelector(".featuredpost");
 const headerlogo = document.querySelector(".headerlogo");
 const navBar = document.querySelector(".navbarhome");
+const featuredImage = document.querySelector(".featuredimage");
 
 async function getBlogPosts() {
   const response = await fetch(url);
@@ -14,6 +18,10 @@ async function getBlogPosts() {
 
 getBlogPosts(url);
 
+/////////////////////////
+
+//////////////////////////
+
 async function getBlogDataForIndexPage() {
   const response = await fetch(blogUrlforLandingPage);
   const results = await response.json();
@@ -21,41 +29,26 @@ async function getBlogDataForIndexPage() {
   for (let i = 0; i < results.length; i++) {
     let blogHeading = results[i].title.rendered;
     let blogText = results[i].excerpt.rendered;
+    let image = results[i].featured_media;
 
     const footerCont = document.querySelector(".blogfooter");
     const footerHeading = document.querySelector(".blogfooth1");
     const footerText = document.querySelector(".blogfoottext");
 
-    featuredPost.innerHTML += `<button class="scrolleft"><i class="fa-solid fa-arrow-left"></i></button>
-    <div class="featuredpost">
-        <div class="featuredpostimage"></div>
+    featuredPost.innerHTML += `
+      <div class="fpcontainer" id="boing">
   	    <h3 class="featuredpostheading">${blogHeading}</h3>
   	    <p class="featuredpostpreview">${blogText}</p>
-  	    <a class="postonelink" href="/blog.specific.html">Read</a>
-    </div>
-    <button class="scroll-right"><i class="fa-solid fa-arrow-right"></i></button>`;
-  }
-
-  //This will be the scroll function
-
-  const leftButton = document.querySelector(".scrolleft");
-  leftButton.addEventListener("click", leftClick);
-
-  function leftClick() {
-    console.log("hello");
-  }
-
-  const rightButton = document.querySelector(".scroll-right");
-  rightButton.addEventListener("click", rightClick);
-
-  function rightClick() {
-    console.log("hello");
-
-    //This will be the scroll function
+  	    <a class="postonelink" href="/blog.specific.html?id=${results[i].id}">Read</a>
+      </div>
+    `;
   }
 }
-
 getBlogDataForIndexPage(blogUrlforLandingPage);
+
+//This will be the scroll function
+
+//This will be the scroll function
 
 //MENUSCRIPT
 
@@ -82,3 +75,16 @@ function hideMenu() {
   xIcon.style.display = "none";
   hamburgerIcon.style.display = "block";
 }
+
+async function getMediaForFeaturedPost() {
+  const response = await fetch(mediaUrl);
+  const results = await response.json();
+
+  for (let i = 0; i < results.length; i++) {
+    console.log(results[i].id);
+    const image = results[i].id;
+
+    featuredImage.innerHTML = `<img src = "${image}"/>`;
+  }
+}
+getMediaForFeaturedPost(mediaUrl);

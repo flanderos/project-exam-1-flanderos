@@ -14,7 +14,9 @@ async function getBlogData() {
     let blogDate = results[i].date;
     let blogText = results[i].excerpt.rendered;
 
-    postContainer.innerHTML += `<div class="blogright">
+    postContainer.innerHTML += `
+   
+    <div class="blogright">
       <h1 class="blogheading">${blogHeading}</h1>
       <div class="bloginfo">
       <i class="fa-solid fa-user"></i>
@@ -30,7 +32,7 @@ async function getBlogData() {
         </p>
       </div>
       <div class="blogtag"><i class="fa-solid fa-tag"></i>Travel</div>
-      <a class="blogspecifcbtn" href="blog.specific.html">READ MORE</a>
+      <a class="blogspecifcbtn" href="blog.specific.html?id=${results[i].id}">READ MORE</a>
     </div>`;
 
     footerContainer.innerHTML = `

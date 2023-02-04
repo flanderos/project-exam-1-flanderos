@@ -16,7 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Neucha&family=Poppins:wght@600&family=Roboto+Slab&family=Staatliches&display=swap"
       rel="stylesheet"
     />
-    <title>The Travel Blog</title>
+    <title>The Winter Blog - Contact</title>
   </head>
   <body>
     <header>
@@ -56,19 +56,25 @@
           </div>
       </section>
       <section class="formsection">
-        <form action="POST">
+        <form>
           <h2 class="formheading">Get in touch with me!</h2>
           <div class="inputcontainer">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" class="emailinput" />
+            <div class="error" id="emailerror">Please enter a valid email</div>
             <label for="name">Name</label>
             <input type="text" id="text" name="name" class="nameinput" />
+            <div class="error" id="nameerror">Please enter a valid name</div>
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" class="subjectinput" />
+            <div class="error" id="subjecterror">Please enter at least 3 letters</div>
             <label for="message">Message</label>
             <textarea class="message">
-           
             </textarea>
+            <div class="error" id="messageerror">Minimum 2 characters</div>
           </div>
-          <button class="submitbtn" >Send message</button>
+          <button type="button" class="submitbtn" >Send message</button>
+          <div class="success">Success</div>
         </form>
       </main>
       </section>
@@ -92,6 +98,7 @@
       </footer>
       <script src="js/index.js"></script>
       <script src="js/blog.js"></script>
+      <script src="js/contact.js"></script>
       <!-- Hotjar Tracking Code for Project-exam//THE WINTER BLOG -->
 <script>
   (function(h,o,t,j,a,r){

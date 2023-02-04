@@ -16,7 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Neucha&family=Poppins:wght@600&family=Roboto+Slab&family=Staatliches&display=swap"
       rel="stylesheet"
     />
-    <title>The Travel Blog</title>
+    <title>HUSK Å SETT INN VARIABEL MED BLOGPOST TITTEL HER</title>
   </head>
   <body>
     <header id="shadow">
@@ -50,7 +50,7 @@
           </div>
           <div class="blogposttext"></div>
         </div>
-        <div class="blogpostreplies">
+        <form class="blogpostreplies">
           <h4 class="commentusername"></h4>
           <div class="commentinfo"></div>
           <p class="comment" id="comment"></p>
@@ -67,12 +67,16 @@
             id="blog-post-comment"
             name="blog.comment"
           ></textarea>
+          <div class="error" id ="commenterrorforcomment">Enter a nice Comment</div>
           <label for="name" class="inputname">Name</label>
           <input type="text" id="inputname" name="nameinput" />
+          <div class="error" id ="nameerrorforcomment">Enter a valid name</div>
           <label for="email" class="emaillabel">Email</label>
           <input type="email" class="emailinput" name="emailinput" />
-          <button class="commentbutton">Publish comment</button>
-        </div>
+          <div class="error" id ="emailerrorforcomment">Enter a valid email</div>
+          <button type="button" class="commentbutton">Publish comment</button>
+          <div class="succeeded">Success!</div>
+        </form>
       </main>
       <section class="rightsection">
         <h2 class="rightheading">The Winter Blog</h2>
