@@ -8,7 +8,6 @@ const blogUrl = url + "wp/v2/posts/?" + "";
 const blogUrl20 = blogUrl + "per_page=20";
 const featuredPost = document.querySelector(".featuredpost");
 const headerlogo = document.querySelector(".headerlogo");
-const navBar = document.querySelector(".navbarhome");
 const featuredImage = document.querySelector(".featuredimage");
 
 async function getBlogPosts() {
@@ -84,14 +83,15 @@ leftBtn.addEventListener("click", function () {
 
 const hamburgerIcon = document.querySelector(".hamburgericon");
 const xIcon = document.querySelector(".xicon");
-
+const navBar = document.querySelector(".navbarhome");
 hamburgerIcon.addEventListener("click", showMenu);
 xIcon.addEventListener("click", hideMenu);
 
 function showMenu() {
   navBar.classList.add("checked");
-  navBar.style.transition = "0.3s";
+  navBar.style.transition = "0.5s";
   hamburgerIcon.style.display = "none";
+  xIcon.style.display = "block";
 
   if (hamburgerIcon.style.display === "none") {
     xIcon.style.display = "block";

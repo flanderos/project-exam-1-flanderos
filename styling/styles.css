@@ -39,6 +39,10 @@ a {
   color: var(--black);
 }
 
+.headerlogo.hover {
+  box-shadow: none;
+}
+
 .navbarhome ul {
   font-family: "Roboto Slab", serif;
   display: flex;
@@ -61,7 +65,7 @@ a {
 }
 
 .hamburgericon {
-  display: none !;
+  display: none;
 }
 
 .xicon {
@@ -195,7 +199,7 @@ h1 {
 }
 
 .featuredpost {
-  transition: 1s;
+  transition: 1.5s;
   box-sizing: border-box;
   display: flex;
   justify-content: center;

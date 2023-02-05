@@ -12,6 +12,7 @@ const commentInfo = document.querySelector(".commentinfo");
 const blogUserName = document.querySelector(".blogpostusername");
 const catDisplayForPost = document.querySelector(".specificcategory");
 const categoryList = document.querySelector(".post-category-id");
+const commentButton = document.querySelector(".commentbutton");
 
 //WORK HERE NOW
 
@@ -72,10 +73,6 @@ async function showLatesPosts() {
 
 showLatesPosts(specificUrl, url);
 
-/* async function postComments() {}
-
-postComments(); */
-
 async function fetchComments() {
   const response = await fetch(commentUrl);
   const results = await response.json();
@@ -117,7 +114,6 @@ const nameError = document.querySelector("#nameerrorforcomment");
 const emailInput = document.querySelector(".emailinput");
 const emailError = document.querySelector("#emailerrorforcomment");
 const successMessage = document.querySelector(".succeeded");
-const commentButton = document.querySelector(".commentbutton");
 
 commentButton.addEventListener("click", validateForm);
 
