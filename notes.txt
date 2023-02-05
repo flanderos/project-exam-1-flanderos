@@ -11,3 +11,5 @@ Version 2:
 -Styling links 
 -Added form validation on contactform
 -Added form validation on commentsection
+
+<i class="fa-solid fa-user"></i>

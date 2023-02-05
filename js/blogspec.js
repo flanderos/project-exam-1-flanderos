@@ -6,7 +6,6 @@ const latestPost = document.querySelector(".latestpost");
 const latestUrl = url + "wp/v2/posts?per_page=3";
 const commentUrl = url + "wp/v2/comments/";
 const specBlogUrl = url + "wp/v2/posts?per_page=1";
-const catUrl = url + "wp/v2/categories";
 const postDate = document.querySelector(".postdate");
 const displayUserName = document.querySelector(".commentusername");
 const commentInfo = document.querySelector(".commentinfo");
@@ -15,7 +14,6 @@ const catDisplayForPost = document.querySelector(".specificcategory");
 const categoryList = document.querySelector(".post-category-id");
 
 //WORK HERE NOW
-/* const jacketSpecificContainer = document.querySelector(".flex-container2"); */
 
 const title = document.querySelector("title");
 
@@ -27,7 +25,18 @@ const id = params.get("id");
 
 const specificUrl = url + "wp/v2/posts/" + id;
 
+const catUrl = url + "wp/v2/categories/?post=" + id;
+
 async function generateSpecBlogPost() {
+  const response3 = await fetch(catUrl);
+  const results3 = await response3.json();
+
+  for (let i = 0; i < results3.lenght; i++) {}
+
+  let postCategory = results3[0].name;
+
+  catDisplayForPost.innerHTML = `${postCategory}`;
+
   const response = await fetch(specificUrl);
   const results = await response.json();
 
@@ -41,7 +50,7 @@ async function generateSpecBlogPost() {
   blogBox.innerHTML = `<h1>${blogHeading}</h1><div class="blogp">${blogText}</div>`;
 }
 
-generateSpecBlogPost(specificUrl);
+generateSpecBlogPost(specificUrl, catUrl);
 
 //WORK HERE NOW
 
@@ -52,8 +61,6 @@ async function showLatesPosts() {
   for (let i = 0; i < results.length; i++) {
     let blogHeading = results[i].title.rendered;
     let blogDate = results[i].date;
-
-    console.log(results[i]);
 
     latestPost.innerHTML += `
     <a href="blog.specific.html?id=${results[i].id}"><h4 class="latestspesificheading">${blogHeading}</h4></a>
@@ -81,25 +88,11 @@ async function fetchComments() {
     commentDisplay.innerHTML += `${comments}`;
     displayUserName.innerHTML = `${userName}`;
     commentInfo.innerHTML = `${timePosted}`;
-    blogUserName.innerHTML = `${userName}`;
+    blogUserName.innerHTML = `<i class="fa-solid fa-user"></i>${userName}`;
   }
 }
 
 fetchComments(commentUrl);
-
-async function fetchCategories() {
-  const response = await fetch(catUrl);
-  const results = await response.json();
-
-  for (let i = 0; i < results.length; i++) {
-    let category = results[i].name;
-
-    catDisplayForPost.innerHTML = `${category}`;
-    categoryList.innerHTML += `<a href=""><li>${category}</li></a>`;
-  }
-}
-
-fetchCategories(catUrl);
 
 //////////////
 
@@ -160,10 +153,6 @@ function validateForm(event) {
   }
 }
 
-validateForm();
-
-commentButton.addEventListener("click", validateForm);
-
 function validateEmail(emailInput) {
   const regEx = /\S+@\S+\.\S+/;
   const patternMatches = regEx.test(emailInput);
@@ -174,11 +163,13 @@ function validateEmail(emailInput) {
 
 // IMAGE HOVER
 
-const figure = document.querySelector(".blogp");
-
-function enlargeImage() {
-  console.log("Yes!");
-}
-
-figure.addEventListener("click", enlargeImage);
-// IMAGE HOVER
+setTimeout(function () {
+  figure = document.querySelector("figure");
+  figure.addEventListener("click", function (event) {
+    figure.classList.add("figurehover");
+    event.stopPropagation();
+  });
+  document.body.addEventListener("click", function () {
+    figure.classList.remove("figurehover");
+  });
+}, 1500);

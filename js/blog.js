@@ -2,8 +2,8 @@ const postContainer = document.querySelector(".blogpost");
 const footerContainer = document.querySelector(".footerdivtwo");
 const blogTextContainer = document.querySelector(".blogtext");
 const blogContainerLandingPage = document.querySelector(".blogright");
-
-const authorUrl = url + "wp/v2/users";
+const blogCategory = document.querySelector(".blogcategory");
+const loadMoreButton = document.querySelector(".loadmore");
 
 async function getBlogData() {
   const response = await fetch(blogUrl);
@@ -19,19 +19,14 @@ async function getBlogData() {
     <div class="blogright">
       <h1 class="blogheading">${blogHeading}</h1>
       <div class="bloginfo">
-      <i class="fa-solid fa-user"></i>
-      <p class="blogusername"></p>
       <i class="fa-regular fa-clock"></i>
       <p class="blogdate">${blogDate}</p>
-      <i class="fa-solid fa-book"></i>
-      <p class="blogcategory">Uncategorized</p>
       </div>
       <div class="blogtext">
         <p>
           ${blogText}
         </p>
       </div>
-      <div class="blogtag"><i class="fa-solid fa-tag"></i>Travel</div>
       <a class="blogspecifcbtn" href="blog.specific.html?id=${results[i].id}">READ MORE</a>
     </div>`;
 

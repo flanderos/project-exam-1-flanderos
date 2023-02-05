@@ -2,8 +2,10 @@ const url = "https://skole.vorsbrothers.no/wp-json/";
 //Change here for number of featured posts on landing page
 const blogUrlforLandingPage = url + "wp/v2/posts?per_page=3";
 //
+
 const mediaUrl = url + "wp/v2/media?per_page=10";
-const blogUrl = url + "wp/v2/posts/";
+const blogUrl = url + "wp/v2/posts/?" + "";
+const blogUrl20 = blogUrl + "per_page=20";
 const featuredPost = document.querySelector(".featuredpost");
 const headerlogo = document.querySelector(".headerlogo");
 const navBar = document.querySelector(".navbarhome");
@@ -29,11 +31,6 @@ async function getBlogDataForIndexPage() {
   for (let i = 0; i < results.length; i++) {
     let blogHeading = results[i].title.rendered;
     let blogText = results[i].excerpt.rendered;
-    let image = results[i].featured_media;
-
-    const footerCont = document.querySelector(".blogfooter");
-    const footerHeading = document.querySelector(".blogfooth1");
-    const footerText = document.querySelector(".blogfoottext");
 
     featuredPost.innerHTML += `
       <div class="fpcontainer" id="boing">
@@ -47,6 +44,39 @@ async function getBlogDataForIndexPage() {
 getBlogDataForIndexPage(blogUrlforLandingPage);
 
 //This will be the scroll function
+
+const fpContainer = document.querySelector(".featuredpost");
+const fpBox = document.querySelectorAll(".fpcontainer");
+const leftBtn = document.querySelector(".scroll-left");
+const rightBtn = document.querySelector(".scroll-right");
+
+let currentPosition = 0;
+
+rightBtn.addEventListener("click", function () {
+  if (currentPosition === 900) {
+    fpContainer.style.transform = "TranslateX(0px)";
+    currentPosition = 0;
+  } else if (currentPosition === 450) {
+    fpContainer.style.transform = "TranslateX(-450px)";
+    currentPosition = -450;
+  } else if (currentPosition === 0) {
+    fpContainer.style.transform = "TranslateX(-900px)";
+    currentPosition = -900;
+  }
+});
+
+leftBtn.addEventListener("click", function () {
+  if (currentPosition === -900) {
+    fpContainer.style.transform = "TranslateX(0px)";
+    currentPosition = 0;
+  } else if (currentPosition === -450) {
+    fpContainer.style.transform = "TranslateX(450px)";
+    currentPosition = 450;
+  } else if (currentPosition === 0) {
+    fpContainer.style.transform = "TranslateX(900px)";
+    currentPosition = 900;
+  }
+});
 
 //This will be the scroll function
 
@@ -75,16 +105,3 @@ function hideMenu() {
   xIcon.style.display = "none";
   hamburgerIcon.style.display = "block";
 }
-
-async function getMediaForFeaturedPost() {
-  const response = await fetch(mediaUrl);
-  const results = await response.json();
-
-  for (let i = 0; i < results.length; i++) {
-    console.log(results[i].id);
-    const image = results[i].id;
-
-    featuredImage.innerHTML = `<img src = "${image}"/>`;
-  }
-}
-getMediaForFeaturedPost(mediaUrl);
