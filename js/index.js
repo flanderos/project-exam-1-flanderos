@@ -4,7 +4,7 @@ const blogUrlforLandingPage = url + "wp/v2/posts?per_page=3";
 //
 
 const mediaUrl = url + "wp/v2/media?per_page=10";
-const blogUrl = url + "wp/v2/posts/?" + "";
+const blogUrl = url + "wp/v2/posts/";
 const blogUrl20 = blogUrl + "per_page=20";
 const featuredPost = document.querySelector(".featuredpost");
 const headerlogo = document.querySelector(".headerlogo");
@@ -44,36 +44,42 @@ getBlogDataForIndexPage(blogUrlforLandingPage);
 
 //This will be the scroll function
 
-const fpContainer = document.querySelector(".featuredpost");
-const fpBox = document.querySelectorAll(".fpcontainer");
-const leftBtn = document.querySelector(".scroll-left");
-const rightBtn = document.querySelector(".scroll-right");
+window.addEventListener("load", function () {
+  const fpContainer = document.querySelector(".featuredpost");
+  const fpBox = document.querySelectorAll(".fpcontainer");
+  const leftBtn = document.querySelector(".scroll-left");
+  const rightBtn = document.querySelector(".scroll-right");
 
-let currentPosition = 0;
+  let currentPosition = 0;
 
-rightBtn.addEventListener("click", function () {
-  if (currentPosition === 900) {
-    fpContainer.style.transform = "TranslateX(0px)";
-    currentPosition = 0;
-  } else if (currentPosition === 450) {
-    fpContainer.style.transform = "TranslateX(-450px)";
-    currentPosition = -450;
-  } else if (currentPosition === 0) {
-    fpContainer.style.transform = "TranslateX(-900px)";
-    currentPosition = -900;
+  if (leftBtn) {
+    leftBtn.addEventListener("click", function () {
+      if (currentPosition === -900) {
+        fpContainer.style.transform = "TranslateX(0px)";
+        currentPosition = 0;
+      } else if (currentPosition === -450) {
+        fpContainer.style.transform = "TranslateX(450px)";
+        currentPosition = 450;
+      } else if (currentPosition === 0) {
+        fpContainer.style.transform = "TranslateX(900px)";
+        currentPosition = 900;
+      }
+    });
   }
-});
 
-leftBtn.addEventListener("click", function () {
-  if (currentPosition === -900) {
-    fpContainer.style.transform = "TranslateX(0px)";
-    currentPosition = 0;
-  } else if (currentPosition === -450) {
-    fpContainer.style.transform = "TranslateX(450px)";
-    currentPosition = 450;
-  } else if (currentPosition === 0) {
-    fpContainer.style.transform = "TranslateX(900px)";
-    currentPosition = 900;
+  if (rightBtn) {
+    rightBtn.addEventListener("click", function () {
+      if (currentPosition === 900) {
+        fpContainer.style.transform = "TranslateX(0px)";
+        currentPosition = 0;
+      } else if (currentPosition === 450) {
+        fpContainer.style.transform = "TranslateX(-450px)";
+        currentPosition = -450;
+      } else if (currentPosition === 0) {
+        fpContainer.style.transform = "TranslateX(-900px)";
+        currentPosition = -900;
+      }
+    });
   }
 });
 
@@ -84,8 +90,6 @@ leftBtn.addEventListener("click", function () {
 const hamburgerIcon = document.querySelector(".hamburgericon");
 const xIcon = document.querySelector(".xicon");
 const navBar = document.querySelector(".navbarhome");
-hamburgerIcon.addEventListener("click", showMenu);
-xIcon.addEventListener("click", hideMenu);
 
 function showMenu() {
   navBar.classList.add("checked");
@@ -105,3 +109,6 @@ function hideMenu() {
   xIcon.style.display = "none";
   hamburgerIcon.style.display = "block";
 }
+
+hamburgerIcon.addEventListener("click", showMenu);
+xIcon.addEventListener("click", hideMenu);
