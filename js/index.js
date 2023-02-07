@@ -4,7 +4,7 @@ const blogUrlforLandingPage = url + "wp/v2/posts?per_page=3";
 //
 
 const mediaUrl = url + "wp/v2/media?per_page=10";
-const blogUrl = url + "wp/v2/posts/";
+const blogUrl = url + "wp/v2/posts";
 const blogUrl20 = blogUrl + "per_page=20";
 const featuredPost = document.querySelector(".featuredpost");
 const headerlogo = document.querySelector(".headerlogo");

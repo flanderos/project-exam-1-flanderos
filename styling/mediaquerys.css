@@ -213,6 +213,7 @@
     margin-top: 50px;
   }
 
-  @media (max-width: 320px) {
+  .searchbar {
+    flex-direction: column;
   }
 }

@@ -4,9 +4,15 @@ const blogTextContainer = document.querySelector(".blogtext");
 const blogContainerLandingPage = document.querySelector(".blogright");
 const blogCategory = document.querySelector(".blogcategory");
 const loadMoreButton = document.querySelector(".loadmore");
+const loadMoreUrl = blogUrl + "?per_page=20";
+
+let pageNumber = 1;
+let perPage = 10;
 
 async function getBlogData() {
-  const response = await fetch(blogUrl);
+  const response = await fetch(
+    `${blogUrl}?per_page=${perPage}&page=${pageNumber}`
+  );
   const results = await response.json();
 
   for (let i = 0; i < results.length; i++) {
@@ -38,4 +44,9 @@ async function getBlogData() {
   }
 }
 
-getBlogData(blogUrl);
+getBlogData(pageNumber);
+
+loadMoreButton.addEventListener("click", function () {
+  pageNumber++;
+  getBlogData(pageNumber);
+});
