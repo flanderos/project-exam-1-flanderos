@@ -2,7 +2,7 @@ const url = "https://skole.vorsbrothers.no/wp-json/";
 //Change here for number of featured posts on landing page
 const blogUrlforLandingPage = url + "wp/v2/posts?per_page=3";
 //
-
+const footerContainer = document.querySelector(".footerdivtwo");
 const mediaUrl = url + "wp/v2/media?per_page=10";
 const blogUrl = url + "wp/v2/posts";
 const blogUrl20 = blogUrl + "per_page=20";
@@ -19,9 +19,25 @@ async function getBlogPosts() {
 
 getBlogPosts(url);
 
-/////////////////////////
+let imageOne = "images/joel-jasmin-forestbird-efuwb5eBDrI-unsplash.jpg";
+let imageTwo = "images/dominik-dombrowski-KNUp-YBwBSE-unsplash.jpg";
+let imageThree = "images/ricardo-gomez-angel-TAhsXhWipwg-unsplash.jpg";
 
-//////////////////////////
+let backgroundImages = [imageOne, imageTwo, imageThree];
+let index = 0;
+let container = document.querySelector(".container");
+
+function changeBackround() {
+  container.style.opacity = 0;
+  setTimeout(function () {
+    container.style.backgroundImage = "url(" + backgroundImages[index] + ")";
+    index = (index + 1) % backgroundImages.length;
+    container.style.opacity = 1;
+    setTimeout(changeBackround, 7000);
+  }, 1000);
+}
+
+changeBackround();
 
 async function getBlogDataForIndexPage() {
   const response = await fetch(blogUrlforLandingPage);

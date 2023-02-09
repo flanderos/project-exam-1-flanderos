@@ -1,10 +1,11 @@
 :root {
   --red: #8e0101;
-  --green: #6bdba5;
+  --green: #04ce6c;
   --lightergreen: #9ef1c9;
   --white: #ffffff;
   --black: #141216;
   --blue: #dee6f7;
+  --grey: #252525;
 }
 
 button:hover {
@@ -94,30 +95,35 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url(/images/ricardo-gomez-angel-TAhsXhWipwg-unsplash.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   height: 600px;
   margin-top: 0;
+  opacity: 0;
+  transition: opacity 2s;
 }
 
 .topblogbtn {
   font-family: "Poppins", sans-serif;
-  background-color: var(--green);
-  color: var(--black);
+  background-color: var(--black);
+  color: var(--white);
   width: 200px;
   height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  transition: 0.2s;
+  transition: 0.3s;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  gap: 5px;
 }
 
 .topblogbtn:hover {
-  background-color: var(--lightergreen);
-  border: 1px solid black;
+  background-color: var(--grey);
 }
 
 .toblogbtn i {
@@ -444,6 +450,7 @@ button:hover {
 .footerpostpreview {
   font-family: "Neucha", cursive;
   width: 80%;
+  color: #fff;
 }
 
 .footeradress {

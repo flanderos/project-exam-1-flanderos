@@ -20,6 +20,10 @@
 }
 
 @media (max-width: 1300px) {
+  .topblogbtn {
+    top: 60%;
+  }
+
   .sidebyside {
     display: block;
   }
@@ -70,6 +74,10 @@
   }
 }
 @media (max-width: 900px) {
+  .topblogbtn {
+    top: 60%;
+  }
+
   .blogposttext {
     margin-left: 10px;
     margin-right: 10px;
