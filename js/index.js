@@ -10,6 +10,32 @@ const featuredPost = document.querySelector(".featuredpost");
 const headerlogo = document.querySelector(".headerlogo");
 const featuredImage = document.querySelector(".featuredimage");
 
+const hamburgerIcon = document.querySelector(".hamburgericon");
+const xIcon = document.querySelector(".xicon");
+const navBar = document.querySelector(".navbarhome");
+
+function showMenu() {
+  navBar.classList.add("checked");
+  navBar.style.transition = "0.5s";
+  hamburgerIcon.style.display = "none";
+  xIcon.style.display = "block";
+
+  if (hamburgerIcon.style.display === "none") {
+    xIcon.style.display = "block";
+  } else if (hamburgerIcon.style.display === "block") {
+    xIcon.style.display = "none";
+  }
+}
+
+function hideMenu() {
+  navBar.classList.remove("checked");
+  xIcon.style.display = "none";
+  hamburgerIcon.style.display = "block";
+}
+
+hamburgerIcon.addEventListener("click", showMenu);
+xIcon.addEventListener("click", hideMenu);
+
 async function getBlogPosts() {
   const response = await fetch(url);
   const data = await response.json();
@@ -98,33 +124,3 @@ window.addEventListener("load", function () {
     });
   }
 });
-
-//This will be the scroll function
-
-//MENUSCRIPT
-
-const hamburgerIcon = document.querySelector(".hamburgericon");
-const xIcon = document.querySelector(".xicon");
-const navBar = document.querySelector(".navbarhome");
-
-function showMenu() {
-  navBar.classList.add("checked");
-  navBar.style.transition = "0.5s";
-  hamburgerIcon.style.display = "none";
-  xIcon.style.display = "block";
-
-  if (hamburgerIcon.style.display === "none") {
-    xIcon.style.display = "block";
-  } else if (hamburgerIcon.style.display === "block") {
-    xIcon.style.display = "none";
-  }
-}
-
-function hideMenu() {
-  navBar.classList.remove("checked");
-  xIcon.style.display = "none";
-  hamburgerIcon.style.display = "block";
-}
-
-hamburgerIcon.addEventListener("click", showMenu);
-xIcon.addEventListener("click", hideMenu);

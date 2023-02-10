@@ -101,7 +101,7 @@ a {
   height: 600px;
   margin-top: 0;
   opacity: 0;
-  transition: opacity 2s;
+  transition: opacity 3s ease;
 }
 
 .topblogbtn {
