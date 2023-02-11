@@ -224,4 +224,21 @@
   .searchbar {
     flex-direction: column;
   }
+
+  .sectiontwo {
+    height: 100%;
+  }
+
+  .sectiontwoheading {
+    margin-top: 30px;
+  }
+
+  .bookasection {
+    height: 100%;
+  }
+
+  .bookaheading {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 }

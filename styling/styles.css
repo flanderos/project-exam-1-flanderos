@@ -51,6 +51,7 @@ a {
   padding-inline-start: 0px;
   list-style-type: none;
   text-decoration: none;
+  z-index: 999;
 }
 
 .navbarhome ul li {
@@ -101,7 +102,7 @@ a {
   height: 600px;
   margin-top: 0;
   opacity: 0;
-  transition: opacity 3s ease;
+  transition: opacity 1s ease;
 }
 
 .topblogbtn {
@@ -123,7 +124,7 @@ a {
 }
 
 .topblogbtn:hover {
-  background-color: var(--grey);
+  text-decoration: underline;
 }
 
 .toblogbtn i {
@@ -298,7 +299,7 @@ button:hover {
   position: relative;
   display: flex;
   justify-content: center;
-  height: 800px;
+  height: 1000px;
   background-image: url(/images/stefan-widua-8GgEgObcIuw-unsplash.jpg);
   background-position: center;
   background-size: cover;
@@ -347,10 +348,13 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 80%;
+  min-width: 60%;
+  flex-wrap: wrap;
 }
 
 .truckstext {
-  width: 80%;
+  max-width: 80%;
   font-size: 0.8rem;
 }
 
@@ -361,12 +365,12 @@ button:hover {
 
 .bookasection {
   height: 600px;
-  background-color: var(--green);
+  background-color: var(--blue);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  color: var(--white);
+  color: var(--black);
 }
 
 .bookaheading {
@@ -389,13 +393,13 @@ button:hover {
   justify-content: center;
   align-items: center;
   border-radius: 12px;
-  transition: 0.2s;
+  transition: 0.5s;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 5px 0px;
+  margin-bottom: 10px;
 }
 
 .bookalink:hover {
-  color: var(--black);
-  background-color: var(--white);
+  text-decoration: underline;
 }
 
 .homefooter {
@@ -681,7 +685,7 @@ textarea {
 }
 
 .commentbutton {
-  font-family: "Roboto Slab", serif;
+  font-family: "Poppins", sans-serif;
   margin-top: 20px;
   width: 208px;
   height: 40px;
@@ -689,12 +693,12 @@ textarea {
   border: none;
   transition: 0.4s;
   text-transform: uppercase;
-  background-color: var(--lightergreen);
+  background-color: var(--blue);
+  border: 1px solid black;
 }
 
 .commentbutton:hover {
   cursor: pointer;
-  background-color: #6bdba5;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
@@ -773,19 +777,25 @@ textarea {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  gap: 50px;
 }
 
 .links a {
-  margin: 20px;
-  background-color: #6bdba5;
-  width: 200px;
-  height: 50px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  transition: 0.3s;
-  font-family: "Staatliches", cursive;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  margin-top: 20px;
+  width: 208px;
+  height: 40px;
   border-radius: 10px;
+  border: none;
+  transition: 0.4s;
+  text-transform: uppercase;
+  background-color: var(--blue);
+  border: 1px solid black;
+  margin-bottom: 50px;
+  color: var(--black);
 }
 
 .stick {
@@ -800,7 +810,10 @@ textarea {
 }
 
 .links a:hover {
-  color: var(--white);
+  text-decoration: underline;
+  cursor: pointer;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .contactheader {
@@ -895,22 +908,23 @@ input {
 }
 
 .submitbtn {
-  width: 200px;
-  height: 27px;
-  margin-top: 20px;
   font-family: "Roboto Slab", serif;
-  text-transform: uppercase;
-  background-color: var(--green);
-  border: none;
+  margin-top: 20px;
+  width: 208px;
+  height: 40px;
   border-radius: 10px;
-  color: var(--white);
+  border: none;
   transition: 0.4s;
+  text-transform: uppercase;
+  background-color: var(--blue);
+  border: 1px solid black;
 }
 
 .submitbtn:hover {
   cursor: pointer;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  text-decoration: underline;
 }
 
 .error {

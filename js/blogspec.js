@@ -14,18 +14,11 @@ const catDisplayForPost = document.querySelector(".specificcategory");
 const categoryList = document.querySelector(".post-category-id");
 const commentButton = document.querySelector(".commentbutton");
 
-//WORK HERE NOW
-
 const title = document.querySelector("title");
-
 const queryString = document.location.search;
-
 const params = new URLSearchParams(queryString);
-
 const id = params.get("id");
-
 const specificUrl = url + "wp/v2/posts/" + id;
-
 const catUrl = url + "wp/v2/categories/?post=" + id;
 
 async function generateSpecBlogPost() {
@@ -42,9 +35,8 @@ async function generateSpecBlogPost() {
   const results = await response.json();
 
   let blogHeading = results.title.rendered;
-  let blogDate = results.date;
+
   let blogText = results.content.rendered;
-  let blogCreator = results._links.author;
 
   title.innerText = blogHeading;
 

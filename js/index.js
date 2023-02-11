@@ -1,7 +1,5 @@
 const url = "https://skole.vorsbrothers.no/wp-json/";
-//Change here for number of featured posts on landing page
 const blogUrlforLandingPage = url + "wp/v2/posts?per_page=3";
-//
 const footerContainer = document.querySelector(".footerdivtwo");
 const mediaUrl = url + "wp/v2/media?per_page=10";
 const blogUrl = url + "wp/v2/posts";
@@ -54,13 +52,15 @@ let index = 0;
 let container = document.querySelector(".container");
 
 function changeBackround() {
-  container.style.opacity = 0;
-  setTimeout(function () {
-    container.style.backgroundImage = "url(" + backgroundImages[index] + ")";
-    index = (index + 1) % backgroundImages.length;
-    container.style.opacity = 1;
-    setTimeout(changeBackround, 7000);
-  }, 1000);
+  if (container !== null) {
+    container.style.opacity = 0;
+    setTimeout(function () {
+      container.style.backgroundImage = "url(" + backgroundImages[index] + ")";
+      index = (index + 1) % backgroundImages.length;
+      container.style.opacity = 1;
+      setTimeout(changeBackround, 5000);
+    }, 1000);
+  }
 }
 
 changeBackround();
@@ -73,22 +73,23 @@ async function getBlogDataForIndexPage() {
     let blogHeading = results[i].title.rendered;
     let blogText = results[i].excerpt.rendered;
 
-    featuredPost.innerHTML += `
+    if (featuredPost !== null) {
+      featuredPost.innerHTML += `
       <div class="fpcontainer" id="boing">
   	    <h3 class="featuredpostheading">${blogHeading}</h3>
   	    <p class="featuredpostpreview">${blogText}</p>
   	    <a class="postonelink" href="/blog.specific.html?id=${results[i].id}">Read</a>
       </div>
     `;
+    }
   }
 }
 getBlogDataForIndexPage(blogUrlforLandingPage);
 
-//This will be the scroll function
+//Scroll function
 
 window.addEventListener("load", function () {
   const fpContainer = document.querySelector(".featuredpost");
-  const fpBox = document.querySelectorAll(".fpcontainer");
   const leftBtn = document.querySelector(".scroll-left");
   const rightBtn = document.querySelector(".scroll-right");
 

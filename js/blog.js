@@ -19,7 +19,8 @@ async function getBlogData() {
     let blogDate = results[i].date;
     let blogText = results[i].excerpt.rendered;
 
-    postContainer.innerHTML += `
+    if (postContainer !== null) {
+      postContainer.innerHTML += `
    
     <div class="blogright">
       <h1 class="blogheading">${blogHeading}</h1>
@@ -35,18 +36,18 @@ async function getBlogData() {
       <a class="blogspecifcbtn" href="blog.specific.html?id=${results[i].id}">READ MORE</a>
     </div>`;
 
-    footerContainer.innerHTML = `
+      footerContainer.innerHTML = `
         <h2 class="latestposts">Latest Posts</h2>
         <h3 class="footerdate">${blogDate}</h3>
         <a href="blog.specific.html?id=${results[i].id}"<p class="footerpostpreview">${blogHeading}</p></a>
       `;
 
-    const searchInput = document.querySelector("#searchinput");
-    const searchButton = document.querySelector(".searchicon");
+      const searchInput = document.querySelector("#searchinput");
+      const searchButton = document.querySelector(".searchicon");
 
-    searchButton.addEventListener("click", function () {
-      if (searchInput.value === blogHeading) {
-        postContainer.innerHTML = `
+      searchButton.addEventListener("click", function () {
+        if (searchInput.value === blogHeading) {
+          postContainer.innerHTML = `
         <div class="blogright">
           <h1 class="blogheading">${blogHeading}</h1>
           <div class="bloginfo">
@@ -60,14 +61,17 @@ async function getBlogData() {
           </div>
           <a class="blogspecifcbtn" href="blog.specific.html?id=${results[i].id}">READ MORE</a>
         </div>`;
-      }
-    });
+        }
+      });
+    }
   }
 }
 
 getBlogData(pageNumber);
 
-loadMoreButton.addEventListener("click", function () {
-  pageNumber++;
-  getBlogData(pageNumber);
-});
+if (loadMoreButton !== null) {
+  loadMoreButton.addEventListener("click", function () {
+    pageNumber++;
+    getBlogData(pageNumber);
+  });
+}
