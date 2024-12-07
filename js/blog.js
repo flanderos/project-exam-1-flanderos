@@ -1,77 +1,95 @@
+// DOM-elementer
 const postContainer = document.querySelector(".blogpost");
-const blogTextContainer = document.querySelector(".blogtext");
-const blogContainerLandingPage = document.querySelector(".blogright");
-const blogCategory = document.querySelector(".blogcategory");
+const searchInput = document.querySelector("#searchinput");
 const loadMoreButton = document.querySelector(".loadmore");
-const loadMoreUrl = blogUrl + "?per_page=20";
 
+// Konfigurasjon
 let pageNumber = 1;
 let perPage = 10;
+let allBlogPosts = []; // Lagrer alle bloggposter for søk og visning
 
-async function getBlogData() {
-  const response = await fetch(
-    `${blogUrl}?per_page=${perPage}&page=${pageNumber}`
-  );
-  const results = await response.json();
-
-  for (let i = 0; i < results.length; i++) {
-    let blogHeading = results[i].title.rendered;
-    let blogDate = results[i].date;
-    let blogText = results[i].excerpt.rendered;
-
-    if (postContainer !== null) {
-      postContainer.innerHTML += `
-   
-    <div class="blogright">
-      <h1 class="blogheading">${blogHeading}</h1>
-      <div class="bloginfo">
-      <i class="fa-regular fa-clock"></i>
-      <p class="blogdate">${blogDate}</p>
-      </div>
-      <div class="blogtext">
-        <p>
-          ${blogText}
-        </p>
-      </div>
-      <a class="blogspecifcbtn" href="blog.specific.html?id=${results[i].id}">READ MORE</a>
-    </div>`;
-
-      footerContainer.innerHTML = `
-        <h2 class="latestposts">Latest Posts</h2>
-        <h3 class="footerdate">${blogDate}</h3>
-        <a href="blog.specific.html?id=${results[i].id}"<p class="footerpostpreview">${blogHeading}</p></a>
-      `;
-
-      const searchInput = document.querySelector("#searchinput");
-      const searchButton = document.querySelector(".searchicon");
-
-      searchButton.addEventListener("click", function () {
-        if (searchInput.value === blogHeading) {
-          postContainer.innerHTML = `
-        <div class="blogright">
-          <h1 class="blogheading">${blogHeading}</h1>
-          <div class="bloginfo">
-            <i class="fa-regular fa-clock"></i>
-            <p class="blogdate">${blogDate}</p>
-          </div>
-          <div class="blogtext">
-            <p>
-              ${blogText}
-            </p>
-          </div>
-          <a class="blogspecifcbtn" href="blog.specific.html?id=${results[i].id}">READ MORE</a>
-        </div>`;
-        }
-      });
-    }
+// Henter bloggposter fra API
+async function fetchBlogPosts() {
+  try {
+    const response = await fetch(`${blogUrl}?per_page=${perPage}&page=${pageNumber}`);
+    if (!response.ok) throw new Error("Failed to fetch blog posts");
+    const results = await response.json();
+    allBlogPosts = [...allBlogPosts, ...results]; // Legg til nye innlegg i den globale listen
+    renderBlogPosts(results); // Vis de nye innleggene
+  } catch (error) {
+    console.error("Error fetching blog posts:", error);
+    postContainer.innerHTML = `<p class="error-message">Could not load blog posts. Please try again later.</p>`;
   }
 }
 
-getBlogData(pageNumber);
+// Show the blogposts
+function renderBlogPosts(posts) {
+  if (!posts || posts.length === 0) {
+    postContainer.innerHTML = `<p class="no-results">No blog posts found.</p>`;
+    return;
+  }
 
-if (loadMoreButton !== null) {
-  loadMoreButton.addEventListener("click", function () {
-    pageNumber++;
-    getBlogData(pageNumber);
+  posts.forEach((post) => {
+    const blogHeading = post.title.rendered;
+    const blogDate = new Date(post.date).toLocaleDateString(); // Formater dato
+    const blogText = post.excerpt.rendered;
+    const blogId = post.id;
+
+    postContainer.innerHTML += `
+      <div class="blogright">
+        <h1 class="blogheading">${blogHeading}</h1>
+        <div class="bloginfo">
+          <i class="fa-regular fa-clock"></i>
+          <p class="blogdate">${blogDate}</p>
+        </div>
+        <div class="blogtext">
+          ${blogText}
+        </div>
+        <a class="blogspecifcbtn" href="blog.specific.html?id=${blogId}">READ MORE</a>
+      </div>`;
   });
 }
+
+// Searhfunction
+function handleSearch() {
+  const query = searchInput.value.trim().toLowerCase();
+  if (!query) {
+    renderAllBlogPosts(); // render all posts if searchfield is empty
+    return;
+  }
+
+  const filteredPosts = allBlogPosts.filter((post) =>
+    post.title.rendered.toLowerCase().includes(query)
+  );
+
+  postContainer.innerHTML = ""; // Empty container 
+  renderBlogPosts(filteredPosts);
+
+  if (filteredPosts.length === 0) {
+    postContainer.innerHTML = `<p class="no-results">No results found for "${query}".</p>`;
+  }
+}
+
+
+function renderAllBlogPosts() {
+  postContainer.innerHTML = "";
+  renderBlogPosts(allBlogPosts);
+}
+
+
+function handleLoadMore() {
+  pageNumber++;
+  fetchBlogPosts();
+}
+
+
+if (searchInput) {
+  searchInput.addEventListener("input", handleSearch);
+}
+
+if (loadMoreButton) {
+  loadMoreButton.addEventListener("click", handleLoadMore);
+}
+
+
+fetchBlogPosts();
