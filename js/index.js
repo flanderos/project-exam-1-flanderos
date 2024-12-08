@@ -38,7 +38,7 @@ async function getBlogPosts() {
   const response = await fetch(url);
   const data = await response.json();
 
-  headerlogo.innerHTML = `<h1>${data.name}</h1>`;
+  headerlogo.innerHTML = `<h1>The Winter Blog</h1>`;
 }
 
 getBlogPosts(url);
@@ -81,6 +81,8 @@ async function getBlogDataForIndexPage() {
   for (let i = 0; i < results.length; i++) {
     let blogHeading = results[i].title.rendered;
     let blogText = results[i].excerpt.rendered;
+
+    console.log(results[i].id);
 
     if (featuredPost !== null) {
       featuredPost.innerHTML += `

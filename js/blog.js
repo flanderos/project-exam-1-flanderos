@@ -1,28 +1,27 @@
-// DOM-elementer
+
 const postContainer = document.querySelector(".blogpost");
 const searchInput = document.querySelector("#searchinput");
 const loadMoreButton = document.querySelector(".loadmore");
 
-// Konfigurasjon
 let pageNumber = 1;
 let perPage = 10;
 let allBlogPosts = []; // Lagrer alle bloggposter for søk og visning
 
-// Henter bloggposter fra API
+
 async function fetchBlogPosts() {
   try {
     const response = await fetch(`${blogUrl}?per_page=${perPage}&page=${pageNumber}`);
     if (!response.ok) throw new Error("Failed to fetch blog posts");
     const results = await response.json();
-    allBlogPosts = [...allBlogPosts, ...results]; // Legg til nye innlegg i den globale listen
-    renderBlogPosts(results); // Vis de nye innleggene
+    allBlogPosts = [...allBlogPosts, ...results];
+    renderBlogPosts(results);
   } catch (error) {
     console.error("Error fetching blog posts:", error);
     postContainer.innerHTML = `<p class="error-message">Could not load blog posts. Please try again later.</p>`;
   }
 }
 
-// Show the blogposts
+
 function renderBlogPosts(posts) {
   if (!posts || posts.length === 0) {
     postContainer.innerHTML = `<p class="no-results">No blog posts found.</p>`;
@@ -31,11 +30,12 @@ function renderBlogPosts(posts) {
 
   posts.forEach((post) => {
     const blogHeading = post.title.rendered;
-    const blogDate = new Date(post.date).toLocaleDateString(); // Formater dato
+    const blogDate = new Date(post.date).toLocaleDateString();
     const blogText = post.excerpt.rendered;
     const blogId = post.id;
 
-    postContainer.innerHTML += `
+    if (postContainer) {
+      postContainer.innerHTML += `
       <div class="blogright">
         <h1 class="blogheading">${blogHeading}</h1>
         <div class="bloginfo">
@@ -47,6 +47,7 @@ function renderBlogPosts(posts) {
         </div>
         <a class="blogspecifcbtn" href="blog.specific.html?id=${blogId}">READ MORE</a>
       </div>`;
+    }
   });
 }
 

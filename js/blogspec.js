@@ -8,13 +8,12 @@ const catDisplayForPost = document.querySelector(".specificcategory");
 const commentButton = document.querySelector(".commentbutton");
 
 // Konfigurasjon
-const blogUrl = "https://your-blog-api-url.com/wp-json/wp/v2/posts";
-const commentUrl = "https://your-blog-api-url.com/wp-json/wp/v2/comments";
+const commentUrl = "https://www.andershellerud.no/wp-json/wp/v2/comments";
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
 const specificUrl = `${blogUrl}/${id}`;
-const catUrl = `https://your-blog-api-url.com/wp-json/wp/v2/categories?post=${id}`;
+const catUrl = `https://www.andershellerud.no/wp-json/wp/v2/categories?post=${id}`;
 
 
 async function generateSpecBlogPost() {
