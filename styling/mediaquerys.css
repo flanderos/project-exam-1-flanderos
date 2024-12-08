@@ -73,6 +73,7 @@
     max-width: 427px;
   }
 }
+
 @media (max-width: 900px) {
   .topblogbtn {
     top: 60%;

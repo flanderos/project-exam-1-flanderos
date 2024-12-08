@@ -1,4 +1,4 @@
-const url = "https://skole.vorsbrothers.no/wp-json/";
+const url = "https://www.andershellerud.no/wp-json/";
 const blogUrlforLandingPage = url + "wp/v2/posts?per_page=3";
 const footerContainer = document.querySelector(".footerdivtwo");
 const mediaUrl = url + "wp/v2/media?per_page=10";
@@ -38,14 +38,22 @@ async function getBlogPosts() {
   const response = await fetch(url);
   const data = await response.json();
 
-  headerlogo.innerHTML = `<h1>${data.name}</h1>`;
+  headerlogo.innerHTML = `<h1>The Winter Blog</h1>`;
 }
 
 getBlogPosts(url);
 
+
 let imageOne = "images/joel-jasmin-forestbird-efuwb5eBDrI-unsplash.jpg";
 let imageTwo = "images/dominik-dombrowski-KNUp-YBwBSE-unsplash.jpg";
 let imageThree = "images/ricardo-gomez-angel-TAhsXhWipwg-unsplash.jpg";
+
+function preloadImages(images) {
+  images.forEach((image) => {
+    const img = new Image();
+    img.src = image;
+  });
+}
 
 let backgroundImages = [imageOne, imageTwo, imageThree];
 let index = 0;
@@ -63,6 +71,7 @@ function changeBackround() {
   }
 }
 
+preloadImages(backgroundImages);
 changeBackround();
 
 async function getBlogDataForIndexPage() {
@@ -72,6 +81,8 @@ async function getBlogDataForIndexPage() {
   for (let i = 0; i < results.length; i++) {
     let blogHeading = results[i].title.rendered;
     let blogText = results[i].excerpt.rendered;
+
+    console.log(results[i].id);
 
     if (featuredPost !== null) {
       featuredPost.innerHTML += `
